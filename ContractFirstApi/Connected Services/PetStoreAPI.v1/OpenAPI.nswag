@@ -3,7 +3,7 @@
   "defaultVariables": null,
   "documentGenerator": {
     "fromDocument": {
-      "url": "C:\\Users\\karasova\\source\\repos\\ContractFirstApi\\ContractFirstApi\\openapi.json",
+      "url": "C:\\Users\\karasova\\source\\repos\\ContractFirstApi\\ContractFirstApi\\openapis\\openapiV1.json",
       "output": "OpenAPI.nswag.json",
       "newLineBehavior": "Auto"
     }
@@ -55,7 +55,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "ContractFirstApi.Tests",
+      "namespace": "ContractFirstApi.Tests.Clients.V1",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
@@ -120,7 +120,7 @@
       "wrapResponseMethods": [],
       "generateResponseClasses": true,
       "responseClass": "SwaggerResponse",
-      "namespace": "ContractFirstApi",
+      "namespace": "ContractFirstApi.PetStoreAPI.v1",
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTimeOffset",
       "jsonConverters": null,
