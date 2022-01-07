@@ -9,8 +9,8 @@ namespace ContractFirstApi.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            //var user = CreateClient().UserAsync(10).GetAwaiter().GetResult();
-            //user.ShouldBe("");
+            //var result = CreateClient().PetsGetAsync("10").GetAwaiter().GetResult();
+            //result.Name.ShouldBe("Dog");
         }
      
     }

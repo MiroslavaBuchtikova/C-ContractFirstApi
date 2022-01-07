@@ -1,7 +1,7 @@
 ﻿{
   "openapi": "3.0.0",
   "info": {
-    "title": "User service",
+    "title": "Swagger Petstore",
     "license": {
       "name": "MIT"
     },
@@ -9,23 +9,22 @@
   },
   "servers": [
     {
-      "url": "localhost:3000"
+      "url": "http://petstore.swagger.io/v1"
     }
   ],
   "paths": {
-    "/user": {
+    "/pets": {
       "get": {
         "tags": [
-          "user"
+          "pets"
         ],
-        "summary": "Details about a user",
-        "operationId": "listUser",
+        "summary": "List all pets",
+        "operationId": "listPets",
         "parameters": [
           {
-            "name": "id",
+            "name": "limit",
             "in": "query",
-            "required": true,
-            "description": "ID of the user",
+            "description": "How many items to return at one time (max 100)",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -34,7 +33,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Details about a user",
+            "description": "A paged array of pets",
             "headers": {
               "x-next": {
                 "description": "A link to the next page of responses",
@@ -46,7 +45,71 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/User"
+                  "$ref": "#/components/schemas/Pets"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "pets"
+        ],
+        "summary": "Create a pet",
+        "operationId": "createPets",
+        "responses": {
+          "201": {
+            "description": "Null response"
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pets/{petId}": {
+      "get": {
+        "tags": [
+          "pets"
+        ],
+        "summary": "Info for a specific pet",
+        "operationId": "showPetById",
+        "parameters": [
+          {
+            "name": "petId",
+            "in": "path",
+            "required": true,
+            "description": "The id of the pet to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Expected response to a valid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Pet"
                 }
               }
             }
@@ -67,7 +130,7 @@
   },
   "components": {
     "schemas": {
-      "User": {
+      "Pet": {
         "type": "object",
         "required": [
           "id",
@@ -86,6 +149,12 @@
           }
         }
       },
+      "Pets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Pet"
+        }
+      },
       "Error": {
         "type": "object",
         "required": [
@@ -102,17 +171,6 @@
           }
         }
       }
-    },
-    "securitySchemes": {
-      "BasicAuth": {
-        "type": "http",
-        "scheme": "basic"
-      }
     }
-  },
-  "security": [
-    {
-      "BasicAuth": []
-    }
-  ]
+  }
 }

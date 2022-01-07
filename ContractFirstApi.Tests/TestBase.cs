@@ -26,7 +26,7 @@ namespace ContractFirstApi.Tests
         //protected Client CreateClient()
         //{
         //    var client = _testServer.GetTestClient();
-        //    client.BaseAddress = new Uri(client.BaseAddress, "");
+        //    client.BaseAddress = new Uri(client.BaseAddress, "/v1/");
 
         //    return new Client(client);
         //}

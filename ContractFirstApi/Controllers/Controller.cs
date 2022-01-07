@@ -4,6 +4,6 @@ namespace ContractFirstApi.Controllers
 {
     public class Controller : ControllerBase
     {
-
+        
     }
 }
