@@ -1,12 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <IsPackable>true</IsPackable>
-	  <RepositoryUrl>https://github.com/MiroslavaKarasova/C-ContractFirstApi.git</RepositoryUrl>
-  </PropertyGroup>
+	    </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
