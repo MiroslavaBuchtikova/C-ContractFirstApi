@@ -1,3 +1,5 @@
+using Microsoft.OpenApi.Models;
+
 public class Startup
 {
     public Startup(IConfiguration configuration)
@@ -12,7 +14,11 @@ public class Startup
     {
         services.AddControllers();
         services.AddEndpointsApiExplorer();
-        services.AddSwaggerGen();
+        services.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API - V1", Version = "v1" });
+            c.SwaggerDoc("v2", new OpenApiInfo { Title = "My API - V2", Version = "v2" });
+        });
         var mvcCore = services.AddMvcCore();
         mvcCore
           .AddControllersAsServices()
@@ -27,7 +33,11 @@ public class Startup
         if (env.IsDevelopment())
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API - V1");
+                c.SwaggerEndpoint("/swagger/v2/swagger.json", "My API - V2");
+            });
         }
 
         app.UseHttpsRedirection();

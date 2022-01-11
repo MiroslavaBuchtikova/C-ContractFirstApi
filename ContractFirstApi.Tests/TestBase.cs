@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Clients.v1;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,13 +24,13 @@ namespace ContractFirstApi.Tests
 
             _testServer = builder.Start();
         }
-        //protected Client CreateClient()
-        //{
-        //    var client = _testServer.GetTestClient();
-        //    client.BaseAddress = new Uri(client.BaseAddress, "/v1/");
+        protected Client CreateClient()
+        {
+            var client = _testServer.GetTestClient();
+            client.BaseAddress = new Uri(client.BaseAddress, "/v1/");
 
-        //    return new Client(client);
-        //}
+            return new Client(client);
+        }
 
         private void ConfigureServicesForTest(IWebHostBuilder builder)
         {

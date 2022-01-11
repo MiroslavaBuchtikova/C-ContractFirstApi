@@ -1,11 +1,11 @@
 ﻿{
   "openapi": "3.0.0",
   "info": {
-    "version": "2.0.0",
     "title": "Swagger Petstore",
     "license": {
       "name": "MIT"
-    }
+    },
+    "version": "2.0.0"
   },
   "servers": [
     {
@@ -15,17 +15,16 @@
   "paths": {
     "/pets": {
       "get": {
-        "summary": "List all pets with owners",
-        "operationId": "listPets",
         "tags": [
           "pets"
         ],
+        "summary": "List all pets with owners",
+        "operationId": "listPets",
         "parameters": [
           {
             "name": "limit",
             "in": "query",
             "description": "How many items to return at one time (max 100)",
-            "required": false,
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -34,8 +33,8 @@
           {
             "name": "displayOwnerInfo",
             "in": "query",
-            "description": "Display info about owner?",
             "required": true,
+            "description": "Display info about owner?",
             "schema": {
               "type": "boolean"
             }
@@ -73,17 +72,17 @@
         }
       },
       "post": {
-        "summary": "Create a pet",
-        "operationId": "createPets",
         "tags": [
           "pets"
         ],
+        "summary": "Create a pet",
+        "operationId": "createPets",
         "parameters": [
           {
             "name": "ownerId",
             "in": "query",
-            "description": "Put information about owner id",
             "required": true,
+            "description": "Put information about owner id",
             "schema": {
               "type": "integer",
               "format": "int32"
@@ -109,11 +108,11 @@
     },
     "/pets/{petId}": {
       "get": {
-        "summary": "Info for a specific pet",
-        "operationId": "showPetById",
         "tags": [
           "pets"
         ],
+        "summary": "Info for a specific pet",
+        "operationId": "showPetById",
         "parameters": [
           {
             "name": "petId",
